@@ -1,0 +1,68 @@
+{
+    "name": "neuecommerce/addresses",
+    "description": "Addresses is a polymorphic Laravel package, for addressbook management. Adding addresses to any Eloquent model was never this easy.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Neue Commerce Team",
+            "email": "hello@neuecommerce.com",
+            "homepage": "https://neuecommerce.com"
+        }
+    ],
+    "keywords": [
+        "php",
+        "laravel",
+        "neuecommerce",
+        "addresses",
+        "address"
+    ],
+    "require": {
+        "php": "^8.3",
+        "illuminate/database": "^12.0",
+        "nesbot/carbon": "^3.0",
+        "neuecommerce/model-casts": "dev-main",
+        "prinsfrank/standards": "^3.11"
+    },
+    "require-dev": {
+        "neuecommerce/coding-standards": "dev-main",
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeueCommerce\\Addresses\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NeueCommerce\\Addresses\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "neuecommerce/coding-standards": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "scripts": {
+        "ecs:fix": "./vendor/bin/ecs --fix",
+        "ecs:check": "./vendor/bin/ecs",
+        "phpstan": "./vendor/bin/phpstan analyse --ansi",
+        "rector:fix": "./vendor/bin/rector process --ansi",
+        "rector:check": "./vendor/bin/rector process --ansi --dry-run",
+        "test": "./vendor/bin/phpunit -c phpunit.dist.xml",
+        "test:coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "./vendor/bin/phpunit -c phpunit-coverage.dist.xml"
+        ]
+    },
+    "minimum-stability": "stable"
+}
